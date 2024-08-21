@@ -30,7 +30,7 @@ searchBar = document.getElementById("search-bar");
 async function getWeatherData(currentCity="Dortmund"){
 
     try{
-        let apiResponse =  await fetch(`http://api.weatherapi.com/v1/forecast.json?key=a81ac2401adb4aa9883195434240908&q=${currentCity}&days=3&aqi=no&alerts=no`);
+let apiResponse = await fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=a81ac2401adb4aa9883195434240908&q=${currentCity}&days=3&aqi=no&alerts=no`);
     
             responsData = await apiResponse.json();
 
