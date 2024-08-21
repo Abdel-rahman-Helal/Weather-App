@@ -27,29 +27,17 @@ let monate = ["Januar","Februar","März","April","Mai","June","Juni","August","S
 
 searchBar = document.getElementById("search-bar");
 
-async function getWeatherData(currentCity="Dortmund"){
-
-    try{
-let apiResponse = await fetch(`https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=a81ac2401adb4aa9883195434240908&q=${currentCity}&days=3&aqi=no&alerts=no`);
-    
-            responsData = await apiResponse.json();
-
-            console.log(responsData);
-            displayTodayWeather();
-            desplayNextDayWeather()
-
-
+async function getWeatherData(currentCity="Dortmund") {
+    try {
+        let apiResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=a81ac2401adb4aa9883195434240908&q=${currentCity}&days=3&aqi=no&alerts=no`);
+        responsData = await apiResponse.json();
+        console.log(responsData);
+        displayTodayWeather();
+        desplayNextDayWeather();
+    } catch (error) {
+        console.error('Error by Fetching the Date', error);
     }
-
-
-    catch (error){
-
-        console.error('Error by Fetching the Date',error)
-
-    }
-   
 }
-
 
 
 
